@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfApp20.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp20"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="507" Width="911">
+    <Grid>
+        <Viewbox Height="350" Width="400" HorizontalAlignment="Left" Stretch="UniformToFill">
+            <Image x:Name="img" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="{Binding ElementName=sld, Path=Value}" ScaleY="{Binding ElementName=sld, Path=Value}"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Viewbox>
+        <Button x:Name="Next" Width="60" Height="40" Content="Next" Margin="0,394,740,0" Click="Next_Click"></Button>
+        <Button x:Name="Prev" Width="60" Height="40" Content="Prev" Margin="73,394,667,0" Click="Prev_Click"/>
+        <Button x:Name="First" Width="60" Height="40" Content="First" Margin="146,394,594,0" Click="First_Click"/>
+        <Button x:Name="Last" Width="60" Height="40" Content="Last" Margin="217,394,523,0" Click="Last_Click"/>
+        <Slider x:Name="sld" Minimum="1" Maximum="10" RenderTransformOrigin="0.5,0.5" Margin="431,49,126,61">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Grid Width="200" Height="150" Margin="650,32,61,309">
+            <StackPanel HorizontalAlignment="Center">
+                <Label Content="Image Info"></Label>
+                <Label Content=""></Label>
+                <Label Name="name" Content="Name: "></Label>
+                <Label Name="date" Content="Date: "></Label>
+                <Label Name="author" Content="Author: "></Label>
+            </StackPanel>
+        </Grid>
+        <Grid Width="200" Height="150" Margin="650,246,61,95">
+            <StackPanel HorizontalAlignment="Center">
+            <Label Content="Image Mark"></Label>
+                <RadioButton GroupName="g1" Content="5"></RadioButton>
+                <RadioButton GroupName="g1" Content="4"></RadioButton>
+                <RadioButton GroupName="g1" Content="3"></RadioButton>
+                <RadioButton GroupName="g1" Content="2"></RadioButton>
+                <RadioButton GroupName="g1" Content="1"></RadioButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
